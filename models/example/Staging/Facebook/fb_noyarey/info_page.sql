@@ -1,3 +1,9 @@
+{{ config(
+    materialized="table",
+    schema="fb_noyarey"
+) }}
+
+
 select 
        _airbyte_data::json->>'id' as id,
        _airbyte_data::json->>'name' as nom,
@@ -15,7 +21,7 @@ select
        _airbyte_data::json->>'rating_count' as rating_count,
        _airbyte_data::json#>'{location,latitude}' as latitude,
        _airbyte_data::json#>'{location,longitude}' as longitude
-from public._airbyte_raw_page
+from fb_noyarey._airbyte_raw_page
 
        
 

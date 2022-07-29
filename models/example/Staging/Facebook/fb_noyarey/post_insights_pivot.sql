@@ -7,7 +7,7 @@ SELECT
     values, 
     description
 FROM 
-    public.post_insights
+    fb_noyarey.post_insights
 ),
 
 facebook_post as (
@@ -15,7 +15,7 @@ SELECT
     id as id, 
     message
 FROM 
-    public.post
+    fb_noyarey.post
 )
 
 
