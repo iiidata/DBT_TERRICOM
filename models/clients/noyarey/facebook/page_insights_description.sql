@@ -1,8 +1,3 @@
-{{ config(
-    materialized="table",
-    schema="fb_noyarey"
-) }}
-
 
 select distinct _airbyte_data::json->>'title' as title,
     _airbyte_data::json->>'description' as description

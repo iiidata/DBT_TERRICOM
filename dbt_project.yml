@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'DBT_TERRICOMM'
+profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -24,6 +24,11 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+# Variables : 
+#vars:
+#  DBT_TERRICOMM:
+
+
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -33,11 +38,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   DBT_TERRICOMM:
-    # Config indicated by + and applies to all files under models/example/
-    # Config indicated by + and applies to all files under models/example/
-    staging:
-      +schema: dbt_test
-      +materialized: table
-    core:
-      +schema: dbt_test
-      +materialized: table
+  
+    clients:
+      noyarey:
+        +materialized: table
+        +schema: noyarey
+    
+      renage : 
+        +materialized: table
+        +schema: renage

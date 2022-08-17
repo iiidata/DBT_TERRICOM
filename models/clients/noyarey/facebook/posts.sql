@@ -1,7 +1,4 @@
-{{ config(
-    materialized="table",
-    schema="fb_noyarey"
-) }}
+
 
 select (_airbyte_data::json->>'id')::text as id,
        --((_airbyte_data::json->>'shares')::json->>'count')::integer as share, => doit aller dans la table post_insights
@@ -15,6 +12,6 @@ select (_airbyte_data::json->>'id')::text as id,
        ((((((_airbyte_data::json->>'attachments')::json->>'data')::json->0)::json->>'media')::json->>'image')::json->>'src')::text as src_image,
        cast(split_part((_airbyte_data::json->>'created_time'),'T',1) as date) as date_creation,
        cast(split_part((_airbyte_data::json->>'created_time'), 'T', 2) as time) as time_creation,
-       cast(to_char(_airbyte_emitted_at, 'YYYY-MM-DD') as date) as date_pull
+       cast(to_char(_airbyte_emitted_at, 'YYYY-MM-DD') as date) as record_date
        
 from fb_noyarey._airbyte_raw_post

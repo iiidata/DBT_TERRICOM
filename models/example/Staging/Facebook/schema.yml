@@ -1,6 +1,0 @@
-version: 2
-
-models : 
-  - name : posts_insights_description
-  - name : page_insights_description
-

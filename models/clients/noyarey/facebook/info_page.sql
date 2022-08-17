@@ -1,9 +1,4 @@
-{{ config(
-    materialized="table",
-    schema="fb_noyarey"
-) }}
-
-
+{% set my_schema = env_var('fb_noyarey') %}
 select 
        _airbyte_data::json->>'id' as id,
        _airbyte_data::json->>'name' as nom,
@@ -15,7 +10,7 @@ select
        _airbyte_data::json#>>'{location,country}' as pays,
        _airbyte_data::json#>'{location,latitude}' as latitude,
        _airbyte_data::json#>'{location,longitude}' as longitude
-from fb_noyarey._airbyte_raw_page
+from {{my_schema}}._airbyte_raw_page
 
        
 
