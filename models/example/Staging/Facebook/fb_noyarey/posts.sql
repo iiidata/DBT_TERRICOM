@@ -4,7 +4,7 @@
 ) }}
 
 select (_airbyte_data::json->>'id')::text as id,
-       ((_airbyte_data::json->>'shares')::json->>'count')::integer as share,
+       --((_airbyte_data::json->>'shares')::json->>'count')::integer as share, => doit aller dans la table post_insights
        (_airbyte_data::json->> 'message')::text as message, 
        (_airbyte_data::json->>'story')::text as activity, 
        (_airbyte_data::json->>'permalink_url')::text as url_post,
