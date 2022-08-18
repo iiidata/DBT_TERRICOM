@@ -1,5 +1,3 @@
-{{ config(schema='noyarey') }}
-
 select 
        _airbyte_data::json->>'id' as id,
        _airbyte_data::json->>'name' as nom,
@@ -11,7 +9,4 @@ select
        _airbyte_data::json#>>'{location,country}' as pays,
        _airbyte_data::json#>'{location,latitude}' as latitude,
        _airbyte_data::json#>'{location,longitude}' as longitude
-from _airbyte_raw_page
-
-       
-
+from test_vbd._airbyte_raw_page

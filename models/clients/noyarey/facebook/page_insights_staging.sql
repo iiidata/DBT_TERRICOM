@@ -1,3 +1,4 @@
+{{ config(schema='noyarey') }}
 
 with gen_page_insights as (
     select 
@@ -9,7 +10,7 @@ with gen_page_insights as (
        _airbyte_data::json->>'new_like_count' as new_like_count,
        _airbyte_data::json->>'rating_count' as rating_count
 
-    from {{my_schema}}._airbyte_raw_page
+    from _airbyte_raw_page
 ), 
 
 spec_page_insights as (
@@ -21,7 +22,7 @@ spec_page_insights as (
         cast(to_char(_airbyte_emitted_at, 'YYYY-MM-DD') as date) as record_date,
         _airbyte_data::json->>'period' as period
 
-    from {{my_schema}}._airbyte_raw_page_insights
+    from _airbyte_raw_page_insights
     
 )
 
