@@ -1,3 +1,5 @@
+{{ config(schema='test_vbd', materialized='table') }}
+
 select 
        _airbyte_data::json->>'id' as id,
        _airbyte_data::json->>'name' as nom,
