@@ -9,7 +9,7 @@ DBT_TERRICOMM:
       user: iiidata
       pass: password_vbd
       dbname: test
-      schema: test_vbd
+      schema: nitram
 
     prod:
       type: postgres
