@@ -1,0 +1,24 @@
+DBT_TERRICOMM:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 2
+      host: localhost
+      port: 5432
+      user: iiidata
+      pass: password_vbd
+      dbname: test
+      schema: test_vbd
+
+    prod:
+      type: postgres
+      threads: 2
+      host: iiidata.germanywestcentral.cloudapp.azure.com
+      port: 5432
+      user: admin
+      pass: hLz9WddzBtVHSUu
+      dbname: db_dev
+      schema: fb_noyarey
+
+  target: dev
