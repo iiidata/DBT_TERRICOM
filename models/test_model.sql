@@ -1,4 +1,3 @@
-{{ config(materialized='table') }}
 
 select 
        _airbyte_data::json->>'id' as id,
@@ -11,4 +10,4 @@ select
        _airbyte_data::json#>>'{location,country}' as pays,
        _airbyte_data::json#>'{location,latitude}' as latitude,
        _airbyte_data::json#>'{location,longitude}' as longitude
-from test_vbd._airbyte_raw_page
+from nitram._airbyte_raw_page
