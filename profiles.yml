@@ -7,9 +7,9 @@ DBT_TERRICOMM:
       host: localhost
       port: 5432
       user: iiidata
-      pass: password_vbd
-      dbname: test
-      schema: nitram
+      pass: blabla
+      dbname: iiidata
+      schema: public
 
     prod:
       type: postgres
