@@ -19,6 +19,6 @@ DBT_TERRICOMM:
       user: admin
       pass: hLz9WddzBtVHSUu
       dbname: db_dev
-      schema: fb_noyarey
+      schema: li_gresivaudan
 
   target: dev
