@@ -3,6 +3,7 @@
 
 
 select 
+       _airbyte_data::json->>'organizationalEntity' as organization,
        (_airbyte_data::json->>'totalShareStatistics')::json->>'likeCount' as Likes,
        (_airbyte_data::json->>'totalShareStatistics')::json->>'clickCount' as Clicks,
        (_airbyte_data::json->>'totalShareStatistics')::json->>'engagement' as Engagement,
