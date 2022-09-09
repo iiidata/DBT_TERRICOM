@@ -12,12 +12,12 @@
 'page_impressions_by_city_unique' ]
 %}
 
-select page_id, record_date,
+select page_id, 
          {% for insight_name_page in insight_names_page %}
             max(case when (name='{{insight_name_page}}') then value else NULL end) as {{insight_name_page}},
          {% endfor %}
-         fans, followers, were_here_count, talking_about_count, new_like_count, rating_count
-from {{ ref('page_insights_staging') }} 
+         record_date
+from {{ ref('fb_page_insights_staging') }} 
 WHERE period= 'day'
-group by page_id, record_date, fans, followers, were_here_count, talking_about_count, new_like_count, rating_count
+group by page_id, record_date
          

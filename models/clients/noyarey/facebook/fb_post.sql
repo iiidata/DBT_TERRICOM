@@ -1,6 +1,6 @@
 
 select (_airbyte_data::json->>'id')::text as id,
-       --((_airbyte_data::json->>'shares')::json->>'count')::integer as share, => doit aller dans la table post_insights
+       ((_airbyte_data::json->>'shares')::json->>'count')::integer as share,
        (_airbyte_data::json->> 'message')::text as message, 
        (_airbyte_data::json->>'story')::text as activity, 
        (_airbyte_data::json->>'permalink_url')::text as url_post,
@@ -13,4 +13,4 @@ select (_airbyte_data::json->>'id')::text as id,
        cast(split_part((_airbyte_data::json->>'created_time'), 'T', 2) as time) as time_creation,
        cast(to_char(_airbyte_emitted_at, 'YYYY-MM-DD') as date) as record_date
        
-from nitram._airbyte_raw_post
+from fb_noyarey._airbyte_raw_post

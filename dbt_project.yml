@@ -42,7 +42,7 @@ models:
     clients:
       noyarey:
         +materialized: table
-        +schema: noyarey
+        +schema: noyarey2
     
       renage : 
         +materialized: table

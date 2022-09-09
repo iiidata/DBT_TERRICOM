@@ -8,11 +8,11 @@
     ]
 %}
 
-select post_id, record_date,
+select post_id, 
          {% for insight_name in insight_names %}
             max(case when (name='{{insight_name}}') then value else NULL end) as {{insight_name}},
          {% endfor %}
-        shares
-        from {{ ref('post_insights_staging') }} 
-         group by post_id, record_date, shares
+        record_date
+        from {{ ref('fb_post_insights_staging_g') }} 
+         group by post_id, record_date
          
